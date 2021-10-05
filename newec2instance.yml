@@ -1,0 +1,20 @@
+---
+  - hosts: localhost
+    vars:
+      - key: Priyadarsini 
+      - sggroup: sg-06c1f9a024d353b73
+      - ami: ami-092a8ad6d28a00c78     
+    gather_facts: true
+    tasks:
+     - name: Launch Instance
+       ec2:
+         key_name: "{{ key }}"
+         group_id: "{{ sggroup }}"
+         instance_type: t2.micro
+         image: "{{ ami }}"
+         user_data: "{{ lookup('file', 'user_data.sh') }}"
+         wait: true
+         region: us-east-2 
+         vpc_subnet_id: subnet-b44675f8 
+         assign_public_ip: yes
+       register: ec2
