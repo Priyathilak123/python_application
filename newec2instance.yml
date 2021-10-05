@@ -1,7 +1,7 @@
 ---
   - hosts: localhost
     vars:
-      - key: Priyadarsini 
+      - key: xxxxxx
       - sggroup: sg-06c1f9a024d353b73
       - ami: ami-092a8ad6d28a00c78     
     gather_facts: true
